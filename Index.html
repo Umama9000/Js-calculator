@@ -4,9 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="Script.js"></script>
-    </head>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            width: 250px;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 18px;
+            text-align: right;
+        }
+
+        .btn {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #3498db;
+            color: white;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .btn-op {
+            background: #e67e22;
+        }
+
+        .btn-op:hover {
+            background: #d35400;
+        }
+    </style>
+</head>
 
 <body>
 
@@ -46,5 +97,26 @@
         </div>
 
     </div>
-    </body>
+
+<script>
+    let display = document.getElementById("display");
+
+    function press(num) {
+        display.value += num;
+    }
+
+    function calculate() {
+        try {
+            display.value = eval(display.value);
+        } catch (e) {
+            display.value = "Error";
+        }
+    }
+
+    function clearDisplay() {
+        display.value = "";
+    }
+</script>
+
+</body>
 </html>
